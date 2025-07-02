@@ -36,4 +36,7 @@ pipeline:
                   identifier: Echo_start_of_build
                   spec:
                     shell: Sh
-                    command: docker build -t demo-web-server:$BUILD_NUMBER .
+                    command: |-
+                      set -e
+                      docker build -t demo-web-server:${HARNESS_BUILD_ID} .
+                      docker build -t demo-web-server:latest .
