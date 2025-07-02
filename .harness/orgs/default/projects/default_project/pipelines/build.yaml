@@ -32,8 +32,8 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Echo start of build
+                  name: build docker image
                   identifier: Echo_start_of_build
                   spec:
                     shell: Sh
-                    command: echo "Harness CI is fast"
+                    command: docker build -t demo-web-server:$BUILD_NUMBER .
